@@ -1,0 +1,204 @@
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Page with background image ---------- */
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  color: #1d1d1f;
+  background: url("../img/fundo-madeira.jpg") center / cover no-repeat fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* ---------- Gray translucent glass card (Apple style) ---------- */
+.glass-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 36px 32px;
+  border-radius: 28px;
+  background: rgba(200, 200, 205, 0.38);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Header ---------- */
+.form-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.form-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.form-header p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Fields ---------- */
+.row {
+  display: flex;
+  gap: 14px;
+}
+
+.row .field {
+  flex: 1;
+  min-width: 0;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.optional {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 13px 15px;
+  font-family: inherit;
+  font-size: 16px;
+  color: #1d1d1f;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  outline: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1.5l6 6 6-6' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+}
+
+::placeholder {
+  color: rgba(60, 60, 67, 0.55);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: #0a84ff;
+  box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.28);
+}
+
+/* ---------- Checkbox ---------- */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 24px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: #0a84ff;
+  cursor: pointer;
+}
+
+/* ---------- Button ---------- */
+.btn {
+  width: 100%;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: #0a84ff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(10, 132, 255, 0.4);
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background: #339dff;
+  box-shadow: 0 8px 22px rgba(10, 132, 255, 0.5);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 520px) {
+  .glass-card {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-header h1 {
+    font-size: 26px;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card {
+    background: rgba(120, 120, 125, 0.75);
+  }
+}
